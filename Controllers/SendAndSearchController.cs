@@ -29,21 +29,19 @@ namespace KotaApi.Controllers
             BrightnessValue = 255,
             MessagesData = new List<string>()
         };
-        // GET: api/<SendAndSearchController>
+
         [HttpGet]
         public ActionResult<SendAndSearchCommand> GetSendAndSearchCommand()
         {
             return Ok(_sendAndSearchCommand);
         }
 
-        // GET api/<SendAndSearchController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<SendAndSearchController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] SendAndSearchCommand _sendAndSearchCommand)
         {
@@ -52,18 +50,6 @@ namespace KotaApi.Controllers
                 return BadRequest("Invalid request body");
             }
             return Ok("Command received successfully");
-        }
-
-        // PUT api/<SendAndSearchController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<SendAndSearchController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
